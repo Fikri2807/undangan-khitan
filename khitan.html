@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Tasyakuran Khitanan Ananda [Juna]</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Variabel CSS untuk kemudahan perubahan warna */
+        :root {
+           --primary-color-islamic: #03f603; /* Hijau Tua/Forest Green - Khas Islami */
+           --secondary-color-islamic: #b8860b; /* Kuning Emas/Dark Goldenrod - Aksen Islami */
+            --text-dark: #333;
+            --text-light: #666;
+            --bg-light: #f8f8f8;
+            --bg-cream: #fffaf0; background-image: url('../fut-mobile-android/bg.jpg'); /* Ganti dengan URL gambar motif Islami/anak *//* Warna krem lembut */
+            --border-color: #dcdcdc; /* Warna border default */
+        }
+
+        /* Gaya Umum Body */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+        }
+
+        /* Gaya Kontainer Utama Undangan */
+        .container {
+            background: var(--bg-cream);
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            padding: 50px 30px;
+            margin: 20px;
+            max-width: 750px;
+            width: 100%;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 1.5s ease-out; /* Animasi fade-in saat dimuat */
+            border: 2px solid var(--primary-color);
+        }
+
+        /* Animasi Fade-in */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Gaya Header (Pembukaan & Judul) */
+        .header {
+            margin-bottom: 40px;
+        }
+
+        .header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-weight: normal;
+        }
+
+        .header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8em;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            color: var(--text-light);
+            margin-bottom: 25px;
+        }
+
+        /* Gaya Foto Anak */
+        .child-photo {
+            margin: 30px auto;
+            width: 180px; /* Ukuran foto */
+            height: 180px;
+            border-radius: 50%; /* Membuat foto bulat */
+            overflow: hidden;
+            border: 5px solid var(--primary-color); /* Border foto */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .child-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Memastikan foto mengisi area tanpa terdistorsi */
+            display: block;
+        }
+
+        /* Gaya Nama Anak (Highlight) */
+        .name-highlight {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
+            color: var(--secondary-color);
+            font-weight: 700;
+            margin: 25px 0;
+            text-transform: capitalize;
+            line-height: 1.1;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Gaya Info Orang Tua */
+        .parent-info {
+            font-size: 1.1em;
+            color: var(--text-light);
+            margin-top: -15px;
+            margin-bottom: 30px;
+        }
+
+        /* Gaya Bagian Detail Acara */
+        .details-section {
+            margin-top: 30px;
+            font-size: 1.1em;
+        }
+
+        .details-section p {
+            margin-bottom: 8px;
+        }
+
+        .details-section strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        /* Gaya Kartu Info (Waktu & Lokasi) */
+        .info-card {
+            background: #e6ffe6; /* Latar hijau muda */
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 450px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            border: 1px solid var(--primary-color);
+        }
+
+        /* Gaya Google Maps Embed */
+        .gmaps-container {
+            margin-top: 25px;
+            margin-bottom: 20px;
+        }
+
+        .gmaps-container iframe {
+            width: 100%;
+            height: 300px; /* Tinggi iframe Google Maps */
+            border-radius: 10px;
+            border: 1px solid var(--primary-color);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Gaya Footer (Penutup) */
+        .footer {
+            margin-top: 50px;
+            font-size: 0.95em;
+            color: var(--text-light);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            padding-top: 30px;
+        }
+
+        .footer p {
+            margin-bottom: 8px;
+        }
+
+        /* Penyesuaian Responsif */
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 25px;
+            }
+            .header h3 {
+                font-size: 1.5em;
+            }
+            .header h1 {
+                font-size: 2.2em;
+            }
+            .child-photo {
+                width: 150px;
+                height: 150px;
+            }
+            .name-highlight {
+                font-size: 2.8em;
+            }
+            .parent-info, .details-section p, .footer p {
+                font-size: 1em;
+            }
+            .info-card {
+                padding: 15px;
+            }
+            .gmaps-container iframe {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+            .header h3 {
+                font-size: 1.3em;
+            }
+            .header h1 {
+                font-size: 1.8em;
+            }
+            .child-photo {
+                width: 120px;
+                height: 120px;
+            }
+            .name-highlight {
+                font-size: 2.2em;
+                margin: 15px 0;
+            }
+            .parent-info, .details-section p, .footer p {
+                font-size: 0.9em;
+            }
+            .gmaps-container iframe {
+                height: 200px;
+            }
+            body {
+                background-size: 50%; /* Sesuaikan ukuran background image */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h3>Assalamualaikum Warahmatullahi Wabarakatuh</h3>
+            <h1>Undangan Tasyakuran Khitanan</h1>
+        </div>
+
+        <p>Dengan memohon Rahmat dan Ridho Allah SWT, kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam acara Tasyakuran Khitanan putra kami tercinta:</p>
+
+        <div class="child-photo">
+            <img src="fut-mobile-android 1/juna.jpeg" alt="Foto Ananda [Juna]">
+        </div>
+
+        <div class="name-highlight">[Ananda Dwi Arjuna]</div>
+        
+        <p class="parent-info">Putra dari Bapak <strong>[Dwi Raharjo]</strong> & Ibu <strong>[Lindawati]</strong></p>
+
+        <div class="details-section">
+            <p>Yang Insya Allah akan dilaksanakan pada:</p>
+            <div class="info-card">
+                <p><strong>Hari, Tanggal:</strong> [Sabtu], [21] [Juni] [2024]</p>
+                <p><strong>Pukul:</strong> [13:00 - 17:00] WIB</p>
+            </div>
+
+            <p>Bertempat di:</p>
+            <div class="info-card">
+                <p><strong>[jalan Cempaka IV N0.91 RT.02/RW.30, Kelurahan Teluk Pucung, Kec. Bekasi Utara]</strong></p>
+            </div>
+            <div class="gmaps-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.459852061686!2d107.02909647480307!3d-6.202908293784865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698936353dcedf%3A0x10ccd1c9e8fbed76!2sJl.%20Cemp.%20IV%20No.91%2C%20RT.002%2FRW.030%2C%20Tlk.%20Pucung%2C%20Kec.%20Bekasi%20Utara%2C%20Kota%20Bks%2C%20Jawa%20Barat%2017610!5e0!3m2!1sen!2sid!4v1749967763965!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan do'a restu.</p>
+            <p>Jazakumullah Khairan Katsiran</p>
+            <p>Wassalamualaikum Warahmatullahi Wabarakatuh</p>
+            <p>Hormat kami,</p>
+            <p><strong>Keluarga [Nama Keluarga/Nama Ayah & Ibu]</strong></p>
+        </div>
+    </div>
+</body>
+</html>
